@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/manager")
 public class ManagerController {
 
+
     @GetMapping("/getAllChat")
     public ResponseEntity<?> getAllOpenChat() {
         return ResponseEntity.ok("чаты лол");
@@ -16,6 +17,11 @@ public class ManagerController {
 
     @GetMapping("/openChat")
     public ResponseEntity<?> openChat(String id) {
-        return ResponseEntity.ok("chat");
+        return ResponseEntity.ok("chat " + id);
+    }
+
+    @GetMapping("/chat/change")
+    public ResponseEntity<?> changeCategory() {
+        return ResponseEntity.ok("changed");
     }
 }
