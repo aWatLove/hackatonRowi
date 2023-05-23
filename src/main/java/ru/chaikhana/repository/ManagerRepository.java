@@ -6,4 +6,5 @@ import ru.chaikhana.model.Manager;
 
 @Repository
 public interface ManagerRepository extends MongoRepository<Manager, String> {
+
 }
