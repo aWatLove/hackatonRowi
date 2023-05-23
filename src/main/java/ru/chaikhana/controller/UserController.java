@@ -19,7 +19,7 @@ public class UserController {
     @GetMapping("/auth/authenticate")
     public ResponseEntity<String> authenticate(String login, String password) {
         User user = userService.getUserByLogin(login, password);
-        return ResponseEntity.ok(user.getRole() + user.getIdForeign());
+        return ResponseEntity.ok(user.getRole() + " " + user.getIdForeign());
     }
 
     @GetMapping("/")
