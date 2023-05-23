@@ -13,5 +13,6 @@ public class Client {
     private String name;
     private String surname;
     private String patronymic;
+    private String birthDate;
     private List<Product> products;
 }
