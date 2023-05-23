@@ -13,7 +13,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Client getClientById(String id) {
-        return clientRepository.findClientById(id);
+        return clientRepository.findById(id).orElse(null);
     }
 
     @Override
