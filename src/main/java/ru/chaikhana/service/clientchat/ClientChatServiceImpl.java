@@ -16,4 +16,24 @@ public class ClientChatServiceImpl implements ClientChatService {
     public List<ClientChat> getAllClientChatByChatStatus(String chatStatus) {
         return clientChatRepository.findAllClientChatByChatStatus(chatStatus);
     }
+
+    @Override
+    public ClientChat getClientChatById(String id) {
+        return clientChatRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public ClientChat addClientChat(ClientChat clientChat) {
+        return clientChatRepository.save(clientChat);
+    }
+
+    @Override
+    public void deleteClientChat(ClientChat clientChat) {
+        clientChatRepository.delete(clientChat);
+    }
+
+    @Override
+    public ClientChat updateClientChat(ClientChat clientChat) {
+        return clientChatRepository.save(clientChat);
+    }
 }

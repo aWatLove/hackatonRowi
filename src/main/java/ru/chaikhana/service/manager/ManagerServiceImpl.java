@@ -5,10 +5,23 @@ import org.springframework.stereotype.Service;
 import ru.chaikhana.model.Manager;
 import ru.chaikhana.repository.ManagerRepository;
 
+import java.util.List;
+
 @Service
 @Data
 public class ManagerServiceImpl implements ManagerService {
     private final ManagerRepository managerRepository;
+
+    @Override
+    public List<Manager> getAllManager() {
+        return managerRepository.findAll();
+    }
+
+    @Override
+    public List<Manager> getAllManagerByCategory(String category) {
+        return managerRepository.findAllManagerByCategory(category);
+    }
+
     @Override
     public Manager getManagerById(String id) {
         return managerRepository.findById(id).orElse(null);

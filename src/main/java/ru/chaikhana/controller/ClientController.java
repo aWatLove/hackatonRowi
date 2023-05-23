@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.chaikhana.model.Client;
 
 @RestController
 @RequestMapping("/api/client")
@@ -29,4 +30,6 @@ public class ClientController {
         return ResponseEntity.ok("added product");
     }
 
+//    @GetMapping
+//    public ResponseEntity<L>
 }
