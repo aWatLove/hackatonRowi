@@ -16,6 +16,7 @@ public class ClientChat {
     private String clientId;
     private String clientName;
     private String clientSurname;
+    private String clientPatronymic;
     private List<Product> clientProducts;
     private List<Message> messages;
     private String chatStatus;
