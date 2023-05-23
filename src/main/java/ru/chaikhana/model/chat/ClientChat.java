@@ -17,5 +17,6 @@ public class ClientChat {
     private String clientPatronymic;
     private List<Product> clientProducts;
     private List<Message> chatHistory;
-
+    private Enum<ChatStatus> chatStatusEnum;
+    private String typeChat;
 }

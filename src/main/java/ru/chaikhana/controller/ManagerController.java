@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class ManagerController {
 
     @GetMapping("/getAllChat")
-    public ResponseEntity<?> getAllOpenChat(){
+    public ResponseEntity<?> getAllOpenChat() {
         return ResponseEntity.ok("чаты лол");
     }
 
     @GetMapping("/openChat")
-    public ResponseEntity<?> openChat(String id){
+    public ResponseEntity<?> openChat(String id) {
         return ResponseEntity.ok("chat");
     }
 }
