@@ -6,7 +6,7 @@ target/
 application.properties
 
 ### IntelliJ IDEA ###
-/.idea
+.idea
 .idea/*
 .idea/modules.xml
 .idea/jarRepositories.xml
