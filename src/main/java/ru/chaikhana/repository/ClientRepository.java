@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 import ru.chaikhana.model.Client;
 @Repository
 public interface ClientRepository extends MongoRepository<Client, String> {
+    Client findClientById(String id);
 }
