@@ -11,4 +11,8 @@ public interface ClientChatService {
     ClientChat addClientChat(ClientChat clientChat);
     void deleteClientChat(ClientChat clientChat);
     ClientChat updateClientChat(ClientChat clientChat);
+
+    List<ClientChat> getAllOpenNotBusyChat();
+
+    ClientChat getClientChat(String clientId);
 }
