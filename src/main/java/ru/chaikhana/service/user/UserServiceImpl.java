@@ -6,6 +6,7 @@ import ru.chaikhana.model.User;
 import ru.chaikhana.repository.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Data
@@ -28,8 +29,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByLogin(String login) {
-        return userRepository.findUserByLogin(login).orElse(null);
+    public Optional<User> getUserByLogin(String login) {
+        return userRepository.findUserByLogin(login);
     }
 
     @Override
