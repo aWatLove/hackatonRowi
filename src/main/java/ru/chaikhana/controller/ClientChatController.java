@@ -1,6 +1,7 @@
 package ru.chaikhana.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,26 +19,18 @@ public class ClientChatController {
     private final ClientChatServiceImpl clientChatService;
     private final MessageServiceImpl messageService;
 
-
-//================================================================
-    @GetMapping("/api/chat/message/getAllMessageLC")
-    public List<Message> getAllMessage(){
-        return messageService.getAllMessage();
-    }
-
-
-//===============Теперь чуть поумнее==========================
+//===============Теперь чуть поумнее========================== Смена категории
     @PostMapping("/api/chat/message/send")
-    public Message sendMessageInChatArray(@RequestBody Message message, String clientId){
-        return messageService.addMessage(message, clientId);
+    public ResponseEntity<Message> sendMessageInChatArray(@RequestBody Message message, String clientId){
+        return ResponseEntity.ok(messageService.addMessage(message, clientId));
     }
     @GetMapping("/api/chat/message/get")
-    public List<Message> getAllMessageFromClientChat(String clientId){
-        return messageService.getAllMessageFromClientChatByClientId(clientId);
+    public ResponseEntity<List<Message>> getAllMessageFromClientChat(String clientId){
+        return ResponseEntity.ok(messageService.getAllMessageFromClientChatByClientId(clientId));
     }
     @GetMapping("/api/chat/client/getClientChatByClientId")
-    public ClientChat getClientChatByClientId(String clientId){
-        return clientChatService.getClientChatByClientId(clientId);
+    public ResponseEntity<ClientChat> getClientChatByClientId(String clientId){
+        return ResponseEntity.ok(clientChatService.getClientChatByClientId(clientId));
     }
 //===========================================================
 

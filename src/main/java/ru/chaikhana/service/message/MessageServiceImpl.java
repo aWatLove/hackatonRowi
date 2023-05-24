@@ -51,7 +51,8 @@ public class MessageServiceImpl implements MessageService {
         if(clientChat.getChatStatus().equals("isClosed")){
             clientChat.setChatCategory("ordinary");
         }
-        getAllMessageFromClientChatByClientId(clientId).add(message);
+        clientChat.getMessages().add(message);
+        clientChatService.updateClientChat(clientChat);
         return message;
     }
 }
