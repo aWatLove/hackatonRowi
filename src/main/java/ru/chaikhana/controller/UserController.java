@@ -11,14 +11,10 @@ import ru.chaikhana.service.user.UserServiceImpl;
 @RequestMapping("/api/user")
 public class UserController {
     private final UserServiceImpl userService;
-    @GetMapping("/auth/register")
-    public ResponseEntity<?> register() {
-        return ResponseEntity.ok("register");
-    }
 
-    @GetMapping("/auth/authenticate")
-    public ResponseEntity<String> authenticate(String login, String password) {
-        User user = userService.getUserByLogin(login, password);
+    @GetMapping("/auth/{login}")
+    public ResponseEntity<String> authenticate(@PathVariable String login) {
+        User user = userService.getUserByLogin(login);
         return ResponseEntity.ok(user.getRole() + " " + user.getIdForeign());
     }
 

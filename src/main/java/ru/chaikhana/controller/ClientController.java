@@ -1,14 +1,25 @@
 package ru.chaikhana.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.chaikhana.model.Client;
+import ru.chaikhana.service.client.ClientService;
+import ru.chaikhana.service.user.UserService;
 
 @RestController
 @RequestMapping("/api/client")
 public class ClientController {
+    @Autowired
+    ClientService clientService;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getManager(@PathVariable String id) {
+        return ResponseEntity.ok(clientService.getClientById(id));
+    }
 
     @GetMapping("/chat/resolve")
     public ResponseEntity<?> resolvedQuest() {

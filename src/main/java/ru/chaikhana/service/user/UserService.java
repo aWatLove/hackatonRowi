@@ -8,7 +8,7 @@ public interface UserService {
     List<User> getAllUser();
     List<User> getAllUserByRole(String role);
     User getUserById(String id);
-    User getUserByLogin(String login, String password);
+    User getUserByLogin(String login);
     User addUser(User user);
     void deleteUser(User user);
     User updateUser(User user);
