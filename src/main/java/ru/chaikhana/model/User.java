@@ -11,7 +11,6 @@ public class User {
     private String id;
     private String role;
     private String login;
-    private String password;
     private String eMail;
     private String idForeign;
 }

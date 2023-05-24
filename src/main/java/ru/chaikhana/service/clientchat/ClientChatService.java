@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ClientChatService {
     List<ClientChat> getAllClientChatByChatStatus(String chatStatus);
+    List<ClientChat> getAllClientChatByTypeChatAndStatus(String typeChat, String chatStatus);
 
     ClientChat getClientChatById(String id);
     ClientChat addClientChat(ClientChat clientChat);
