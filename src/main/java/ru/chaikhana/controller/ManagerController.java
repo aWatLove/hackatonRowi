@@ -24,7 +24,7 @@ public class ManagerController {
         return ResponseEntity.ok(managerService.getManagerById(id));
     }
 
-    @GetMapping("/api/manager/chat/getByTypeAndStatus")
+    @GetMapping("/api/manager/chat/getByChatCategoryAndStatus")
     public List<ClientChat> getAllClientChatByChatCategoryAndStatus(String chatCategory, String chatStatus){
         return clientChatService.getAllClientChatByChatCategoryAndStatus(chatCategory, chatStatus);
     }
