@@ -8,7 +8,7 @@ public interface MessageService {
     //Тоже временное решение так-то
     List<Message> getAllMessage();
     List<Message> getAllMessageByClientId(String id);
-    Message addMessage(Message message);
+    Message addMessage(Message message, String clientId);
     void deleteMessage(Message message);
     Message updateMessage(Message message);
     List<Message> getAllMessageFromClientChatByClientId(String clientId);

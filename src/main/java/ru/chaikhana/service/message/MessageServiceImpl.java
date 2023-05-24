@@ -30,11 +30,6 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public Message addMessage(Message message) {
-        return messageRepository.save(message);
-    }
-
-    @Override
     public void deleteMessage(Message message) {
         messageRepository.delete(message);
     }
@@ -44,8 +39,19 @@ public class MessageServiceImpl implements MessageService {
         return messageRepository.save(message);
     }
 
+
+
     @Override
     public List<Message> getAllMessageFromClientChatByClientId(String clientId) {
         return clientChatService.getClientChatByClientId(clientId).getMessages();
+    }
+    @Override
+    public Message addMessage(Message message, String clientId) {
+        ClientChat clientChat = clientChatService.getClientChatByClientId(clientId);
+        if(clientChat.getChatStatus().equals("isClosed")){
+            clientChat.setChatCategory("ordinary");
+        }
+        getAllMessageFromClientChatByClientId(clientId).add(message);
+        return message;
     }
 }

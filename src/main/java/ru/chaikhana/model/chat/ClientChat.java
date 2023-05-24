@@ -20,6 +20,6 @@ public class ClientChat {
     private List<Product> clientProducts;
     private List<Message> messages;
     private String chatStatus;
-    private String typeChat;
+    private String chatCategory;
     private String managerId;
 }

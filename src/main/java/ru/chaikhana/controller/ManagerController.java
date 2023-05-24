@@ -40,7 +40,7 @@ public class ManagerController {
     }
 
     @GetMapping("/api/manager/chat/getByTypeAndStatus")
-    public List<ClientChat> getAllClientChatByTypeAndStatus(String chatType, String chatStatus){
-        return clientChatService.getAllClientChatByTypeChatAndStatus(chatType, chatStatus);
+    public List<ClientChat> getAllClientChatByChatCategoryAndStatus(String chatCategory, String chatStatus){
+        return clientChatService.getAllClientChatByChatCategoryAndStatus(chatCategory, chatStatus);
     }
 }

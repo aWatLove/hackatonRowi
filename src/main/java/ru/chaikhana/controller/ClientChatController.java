@@ -20,31 +20,25 @@ public class ClientChatController {
 
 
 //================================================================
-    @GetMapping("/api/manager/chat/getByTypeAndStatus")
-    public List<ClientChat> getAllClientChatByTypeAndStatus(String chatType, String chatStatus){
-        return clientChatService.getAllClientChatByTypeChatAndStatus(chatType, chatStatus);
-    }
-
-    @GetMapping("/api/client/chat/getClientChatByClientId")
-    public ClientChat getClientChatByClientId(String id){
-        return clientChatService.getClientChatById(id);
-    }
-
     @GetMapping("/api/chat/message/getAllMessageLC")
     public List<Message> getAllMessage(){
         return messageService.getAllMessage();
     }
 
-    @PostMapping("/api/chat/message/send")
-    public Message sendMessageInCollection(@RequestBody Message message){
-        return messageService.addMessage(message);
-    }
+
 //===============Теперь чуть поумнее==========================
+    @PostMapping("/api/chat/message/send")
+    public Message sendMessageInChatArray(@RequestBody Message message, String clientId){
+        return messageService.addMessage(message, clientId);
+    }
     @GetMapping("/api/chat/message/get")
     public List<Message> getAllMessageFromClientChat(String clientId){
         return messageService.getAllMessageFromClientChatByClientId(clientId);
     }
-
+    @GetMapping("/api/chat/client/getClientChatByClientId")
+    public ClientChat getClientChatByClientId(String clientId){
+        return clientChatService.getClientChatByClientId(clientId);
+    }
 //===========================================================
 
 }
