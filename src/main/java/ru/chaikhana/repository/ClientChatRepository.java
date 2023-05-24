@@ -11,6 +11,6 @@ import java.util.Optional;
 @Repository
 public interface ClientChatRepository extends MongoRepository<ClientChat, String> {
     List<ClientChat> findAllClientChatByChatStatus(String chatStatus);
-    List<ClientChat> findAllClientChatByTypeChatAndChatStatus(String category, String chatStatus);
+    List<ClientChat> findAllClientChatByTypeChatAndChatStatus(String chatType, String chatStatus);
     Optional<ClientChat> findClientChatByClientId(String clientId);
 }
