@@ -18,8 +18,8 @@ public class ClientChatServiceImpl implements ClientChatService {
     }
 
     @Override
-    public List<ClientChat> getAllClientChatByCategoryAndStatus(String category, String chatStatus) {
-        return clientChatRepository.findAllClientChatByCategoryAndStatus(category, chatStatus);
+    public List<ClientChat> getAllClientChatByTypeChatAndStatus(String typeChat, String chatStatus) {
+        return clientChatRepository.findAllClientChatByTypeChatAndChatStatus(typeChat, chatStatus);
     }
 
     @Override
