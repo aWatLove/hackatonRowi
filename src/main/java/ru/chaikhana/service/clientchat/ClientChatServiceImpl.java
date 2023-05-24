@@ -36,4 +36,14 @@ public class ClientChatServiceImpl implements ClientChatService {
     public ClientChat updateClientChat(ClientChat clientChat) {
         return clientChatRepository.save(clientChat);
     }
+
+    @Override
+    public List<ClientChat> getAllOpenNotBusyChat() {
+        return clientChatRepository.findAllClientChatByChatStatus("isOpenNotBusy");
+    }
+
+    @Override
+    public ClientChat getClientChat(String clientId) {
+        return clientChatRepository.findByClientId(clientId).orElse(null);
+    }
 }
