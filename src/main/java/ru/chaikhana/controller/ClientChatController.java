@@ -33,12 +33,12 @@ public class ClientChatController {
         return clientChatService.getAllClientChatByTypeChatAndStatus(chatType, chatStatus);
     }
 
-    @GetMapping("/api/client/chat/getByTypeAndStatus")
+    @GetMapping("/api/client/chat/getClientChatByClientId")
     public ClientChat getClientChatByClientId(String id){
         return clientChatService.getClientChatById(id);
     }
 
-    @GetMapping("/api/chat/message/getAllMessageLikeCollection")
+    @GetMapping("/api/chat/message/getAllMessageLC")
     public List<Message> getAllMessage(){
         return messageService.getAllMessage();
     }
