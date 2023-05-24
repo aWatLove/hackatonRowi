@@ -5,7 +5,6 @@ import ru.chaikhana.model.chat.ClientChat;
 import java.util.List;
 
 public interface ClientChatService {
-    List<ClientChat> getAllClientChatByChatStatus(String chatStatus);
     List<ClientChat> getAllClientChatByChatCategoryAndStatus(String chatCategory, String chatStatus);
 
     ClientChat getClientChatById(String id);
@@ -16,4 +15,8 @@ public interface ClientChatService {
     List<ClientChat> getAllOpenNotBusyChat();
 
     ClientChat getClientChatByClientId(String clientId);
+
+    void changeClientChatCategory(String chatCategory, String clientId);
+
+    void changeClientChatStatus(String chatStatus, String clientId);
 }

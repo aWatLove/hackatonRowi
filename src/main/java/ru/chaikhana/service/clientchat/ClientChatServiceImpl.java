@@ -13,11 +13,6 @@ public class ClientChatServiceImpl implements ClientChatService {
     private final ClientChatRepository clientChatRepository;
 
     @Override
-    public List<ClientChat> getAllClientChatByChatStatus(String chatStatus) {
-        return clientChatRepository.findAllClientChatByChatStatus(chatStatus);
-    }
-
-    @Override
     public List<ClientChat> getAllClientChatByChatCategoryAndStatus(String chatCategory, String chatStatus) {
         return clientChatRepository.findAllClientChatByChatCategoryAndChatStatus(chatCategory, chatStatus);
     }
@@ -50,5 +45,18 @@ public class ClientChatServiceImpl implements ClientChatService {
     @Override
     public ClientChat getClientChatByClientId(String clientId) {
         return clientChatRepository.findClientChatByClientId(clientId).orElse(null);
+    }
+    @Override
+    public void changeClientChatCategory(String chatCategory, String clientId){
+        ClientChat clientChat = getClientChatByClientId(clientId);
+        clientChat.setChatCategory(chatCategory);
+        updateClientChat(clientChat);
+    }
+
+    @Override
+    public void changeClientChatStatus(String chatStatus, String clientId) {
+        ClientChat clientChat = getClientChatByClientId(clientId);
+        clientChat.setChatStatus(chatStatus);
+        updateClientChat(clientChat);
     }
 }

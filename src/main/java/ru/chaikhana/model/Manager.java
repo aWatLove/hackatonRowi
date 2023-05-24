@@ -13,4 +13,5 @@ public class Manager {
     private String name;
     private String surname;
     private String category;
+    private String managerStatus;
 }
