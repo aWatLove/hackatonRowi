@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface UserRepository extends MongoRepository<User, String> {
     List<User> findAllUserByRole(String role);
     Optional<User> findUserByLogin(String login);
+    void deleteUserById(String id);
 }

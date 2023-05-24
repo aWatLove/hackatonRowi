@@ -21,17 +21,18 @@ public class UserController {
 
     @GetMapping("/")
     public ResponseEntity<?> getAllUsers() {
-        return ResponseEntity.ok("all users");
+        return ResponseEntity.ok(userService.getAllUser());
     }
 
     @PutMapping("/")
-    public ResponseEntity<?> updateUser() {
-        return ResponseEntity.ok("update user");
+    public ResponseEntity<?> updateUser(@RequestBody User user) {
+        return ResponseEntity.ok(userService.updateUser(user));
     }
 
     @DeleteMapping("/")
     public ResponseEntity<?> deleteUser(String id) {
-        return ResponseEntity.ok("delete user "+ id);
+        userService.deleteUser(id);
+        return ResponseEntity.ok("deleted");
     }
 
 

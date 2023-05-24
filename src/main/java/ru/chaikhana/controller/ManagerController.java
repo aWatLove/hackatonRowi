@@ -24,21 +24,6 @@ public class ManagerController {
         return ResponseEntity.ok(managerService.getManagerById(id));
     }
 
-    @GetMapping("/chat/getAll")
-    public ResponseEntity<?> getAllOpenChat() {
-        return ResponseEntity.ok("чаты лол");
-    }
-
-    @GetMapping("/chat/open")
-    public ResponseEntity<?> openChat(String id) {
-        return ResponseEntity.ok("chat " + id);
-    }
-
-    @GetMapping("/chat/change")
-    public ResponseEntity<?> changeCategory() {
-        return ResponseEntity.ok("changed");
-    }
-
     @GetMapping("/api/manager/chat/getByTypeAndStatus")
     public List<ClientChat> getAllClientChatByChatCategoryAndStatus(String chatCategory, String chatStatus){
         return clientChatService.getAllClientChatByChatCategoryAndStatus(chatCategory, chatStatus);

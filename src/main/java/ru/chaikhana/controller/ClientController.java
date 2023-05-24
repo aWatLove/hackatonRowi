@@ -3,11 +3,9 @@ package ru.chaikhana.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.chaikhana.model.Client;
+import ru.chaikhana.model.User;
 import ru.chaikhana.service.client.ClientService;
 import ru.chaikhana.service.user.UserService;
 
@@ -22,26 +20,28 @@ public class ClientController {
         return ResponseEntity.ok(clientService.getClientById(id));
     }
 
-    @GetMapping("/chat/resolve")
-    public ResponseEntity<?> resolvedQuest() {
-        return ResponseEntity.ok("resolved");
+    @PutMapping("/")
+    public ResponseEntity<?> updateClient(@RequestBody Client client) {
+        return ResponseEntity.ok(clientService.updateClient(client));
     }
 
-    @GetMapping("/chat/open")
-    public ResponseEntity<?> openChat() {
-        return ResponseEntity.ok("open");
+    @DeleteMapping("/")
+    public ResponseEntity<?> deleteClient(@RequestBody Client client) {
+        clientService.deleteClient(client);
+        return ResponseEntity.ok("deleted");
     }
 
-    @GetMapping("/chat/close")
-    public ResponseEntity<?> closeChat() {
-        return ResponseEntity.ok("close");
-    }
-
+    // mock
     @GetMapping("/product/add")
     public ResponseEntity<?> addProduct() {
         return ResponseEntity.ok("added product");
     }
 
-//    @GetMapping
-//    public ResponseEntity<L>
+    // mock
+    @GetMapping("/product/delete")
+    public ResponseEntity<?> deleteProduct() {
+        return ResponseEntity.ok("deleted product");
+    }
+
+
 }
