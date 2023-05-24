@@ -47,7 +47,11 @@ public class ClientChatController {
     public Message sendMessageInCollection(@RequestBody Message message){
         return messageService.addMessage(message);
     }
-
+//===============Теперь чуть поумнее==========================
+    @GetMapping("/api/chat/message/get")
+    public List<Message> getAllMessageFromClientChat(String clientId){
+        return messageService.getAllMessageFromClientChatByClientId(clientId);
+    }
 
 //===========================================================
     @MessageMapping("/chat/sendMessage")

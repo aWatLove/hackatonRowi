@@ -11,4 +11,5 @@ public interface MessageService {
     Message addMessage(Message message);
     void deleteMessage(Message message);
     Message updateMessage(Message message);
+    List<Message> getAllMessageFromClientChatByClientId(String clientId);
 }

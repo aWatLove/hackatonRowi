@@ -48,7 +48,7 @@ public class ClientChatServiceImpl implements ClientChatService {
     }
 
     @Override
-    public ClientChat getClientChat(String clientId) {
+    public ClientChat getClientChatByClientId(String clientId) {
         return clientChatRepository.findClientChatByClientId(clientId).orElse(null);
     }
 }

@@ -15,5 +15,5 @@ public interface ClientChatService {
 
     List<ClientChat> getAllOpenNotBusyChat();
 
-    ClientChat getClientChat(String clientId);
+    ClientChat getClientChatByClientId(String clientId);
 }

@@ -1,18 +1,24 @@
 package ru.chaikhana.controller;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.chaikhana.model.chat.ClientChat;
+import ru.chaikhana.service.clientchat.ClientChatServiceImpl;
 import ru.chaikhana.service.manager.ManagerService;
 
+import java.util.List;
+
+@AllArgsConstructor
 @RestController
 @RequestMapping("/api/manager")
 public class ManagerController {
-    @Autowired
-    ManagerService managerService;
+    private final ManagerService managerService;
+    private final ClientChatServiceImpl clientChatService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getManager(@PathVariable String id) {
@@ -32,5 +38,10 @@ public class ManagerController {
     @GetMapping("/chat/change")
     public ResponseEntity<?> changeCategory() {
         return ResponseEntity.ok("changed");
+    }
+
+    @GetMapping("/api/manager/chat/getByTypeAndStatus")
+    public List<ClientChat> getAllClientChatByTypeAndStatus(String chatType, String chatStatus){
+        return clientChatService.getAllClientChatByTypeChatAndStatus(chatType, chatStatus);
     }
 }
