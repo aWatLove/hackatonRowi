@@ -24,6 +24,8 @@ public class ManagerController {
         return ResponseEntity.ok(managerService.getManagerById(id));
     }
 
+    /*Поиск всех чатов для менеджера по его категории,
+     соответсвующие запрашиваему статусу */
     @GetMapping("/chat/getByChatCategoryAndStatus")
     public List<ClientChat> getAllClientChatByChatCategoryAndStatus(String chatCategory, String chatStatus){
         return clientChatService.getAllClientChatByChatCategoryAndStatus(chatCategory, chatStatus);

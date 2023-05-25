@@ -32,6 +32,7 @@ public class ClientServiceImpl implements ClientService {
         return clientRepository.save(client);
     }
 
+    //Удаление и ниже добавление продукт Клиенту
     @Override
     public void deleteProductInClient(Product product, String clientId) {
         Client client = getClientById(clientId);

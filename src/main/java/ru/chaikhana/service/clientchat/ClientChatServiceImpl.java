@@ -13,6 +13,8 @@ import java.util.List;
 public class ClientChatServiceImpl implements ClientChatService {
     private final ClientChatRepository clientChatRepository;
 
+    /*Поиск всех чатов для менеджера по его категории,
+     соответсвующие запрашиваему статусу */
     @Override
     public List<ClientChat> getAllClientChatByChatCategoryAndStatus(String chatCategory, String chatStatus) {
         return clientChatRepository.findAllClientChatByChatCategoryAndChatStatus(chatCategory, chatStatus);
@@ -43,17 +45,19 @@ public class ClientChatServiceImpl implements ClientChatService {
         return clientChatRepository.findAllClientChatByChatStatus("isOpenNotBusy");
     }
 
+    //Поиск чата по Id клиента
     @Override
     public ClientChat getClientChatByClientId(String clientId) {
         return clientChatRepository.findClientChatByClientId(clientId).orElse(null);
     }
+    //Изменение Категории Чата при перенаправлении от одного Менеджера к другому
     @Override
     public void changeClientChatCategory(String chatCategory, String clientId){
         ClientChat clientChat = getClientChatByClientId(clientId);
         clientChat.setChatCategory(chatCategory);
         updateClientChat(clientChat);
     }
-
+    //Изменение Статуса Чата при решении проблемы, входе в чат Менеджера и т.д.
     @Override
     public void changeClientChatStatus(String chatStatus, String clientId) {
         ClientChat clientChat = getClientChatByClientId(clientId);
@@ -63,7 +67,8 @@ public class ClientChatServiceImpl implements ClientChatService {
         clientChat.setChatStatus(chatStatus);
         updateClientChat(clientChat);
     }
-
+    /*Удаление и ниже добавление продукта в чат пользователя,
+     для быстрого доступа к общей информации*/
     @Override
     public void deleteProductInClientChat(Product product, String clientId) {
         ClientChat clientChat = getClientChatByClientId(clientId);
@@ -81,7 +86,8 @@ public class ClientChatServiceImpl implements ClientChatService {
             updateClientChat(clientChat);
         }
     }
-
+    /*Изменение Id менеджера при входе Менеджера в чат,
+     если войдёт другой менеджер, id изменится, если вопрос решён, заNULLится*/
     @Override
     public void changeManagerIdInClientChat(String managerId, String clientId) {
         ClientChat clientChat = getClientChatByClientId(clientId);

@@ -13,6 +13,8 @@ import ru.chaikhana.service.user.UserService;
 public class UserController {
     private final UserService userService;
 
+    /*Аутентификация пользователя, получаем роль и
+     Id пользователя, передавая Логин и пароль*/
     @GetMapping("/auth/{login}")
     public ResponseEntity<?> authenticate(@PathVariable("login") String login) {
         User user = userService.getUserByLogin(login).orElse(null);
