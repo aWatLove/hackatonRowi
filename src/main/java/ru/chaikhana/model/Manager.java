@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Manager {
     @Id
     private String id;
-    private String managerId;
     private String name;
     private String surname;
     private String category;

@@ -35,7 +35,7 @@ public class ClientController {
         return ResponseEntity.ok("deleted");
     }
 
-    // mock
+    // Добавить продукт из списка Клиента
     @GetMapping("/product/add")
     public ResponseEntity<?> addProduct(Product product, String clientId) {
         clientService.addProductInClient(product, clientId);
@@ -43,7 +43,7 @@ public class ClientController {
         return ResponseEntity.ok("added product");
     }
 
-    // mock
+    // Удалить продукт из списка Клиента
     @GetMapping("/product/delete")
     public ResponseEntity<?> deleteProduct(Product product, String clientId) {
         clientService.deleteProductInClient(product, clientId);
