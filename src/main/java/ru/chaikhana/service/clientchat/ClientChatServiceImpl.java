@@ -57,6 +57,9 @@ public class ClientChatServiceImpl implements ClientChatService {
     @Override
     public void changeClientChatStatus(String chatStatus, String clientId) {
         ClientChat clientChat = getClientChatByClientId(clientId);
+        if(chatStatus.equals("isClosed")){
+            clientChat.setManagerId(null);
+        }
         clientChat.setChatStatus(chatStatus);
         updateClientChat(clientChat);
     }
@@ -77,5 +80,15 @@ public class ClientChatServiceImpl implements ClientChatService {
             clientChat.getClientProducts().add(product);
             updateClientChat(clientChat);
         }
+    }
+
+    @Override
+    public void changeManagerIdInClientChat(String managerId, String clientId) {
+        ClientChat clientChat = getClientChatByClientId(clientId);
+       if(clientChat.getChatStatus().equals("isOpenNotBusy")){
+           clientChat.setChatStatus("isOpenAndBusy");
+       }
+       clientChat.setManagerId(managerId);
+       updateClientChat(clientChat);
     }
 }

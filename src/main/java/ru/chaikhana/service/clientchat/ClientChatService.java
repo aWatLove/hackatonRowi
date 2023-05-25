@@ -22,4 +22,5 @@ public interface ClientChatService {
     void changeClientChatStatus(String chatStatus, String clientId);
     void deleteProductInClientChat(Product product, String clientId);
     void addProductInClientChat(Product product, String clientId);
+    void changeManagerIdInClientChat(String managerId, String clientId);
 }
