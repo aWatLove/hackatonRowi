@@ -3,6 +3,7 @@ package ru.chaikhana.service.client;
 import lombok.Data;
 import org.springframework.stereotype.Service;
 import ru.chaikhana.model.Client;
+import ru.chaikhana.model.Product;
 import ru.chaikhana.repository.ClientRepository;
 
 @Service
@@ -29,5 +30,23 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public Client updateClient(Client client) {
         return clientRepository.save(client);
+    }
+
+    @Override
+    public void deleteProductInClient(Product product, String clientId) {
+        Client client = getClientById(clientId);
+        if(client!=null){
+            client.getProducts().remove(product);
+            updateClient(client);
+        }
+    }
+
+    @Override
+    public void addProductInClient(Product product, String clientId) {
+        Client client = getClientById(clientId);
+        if(client!=null){
+            client.getProducts().add(product);
+            updateClient(client);
+        }
     }
 }

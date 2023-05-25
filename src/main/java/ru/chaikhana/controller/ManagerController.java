@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.chaikhana.model.chat.ClientChat;
-import ru.chaikhana.service.clientchat.ClientChatServiceImpl;
+import ru.chaikhana.service.clientchat.ClientChatService;
 import ru.chaikhana.service.manager.ManagerService;
 
 import java.util.List;
@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping("/api/manager")
 public class ManagerController {
     private final ManagerService managerService;
-    private final ClientChatServiceImpl clientChatService;
+    private final ClientChatService clientChatService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getManager(@PathVariable String id) {

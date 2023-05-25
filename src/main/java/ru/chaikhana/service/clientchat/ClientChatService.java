@@ -1,5 +1,6 @@
 package ru.chaikhana.service.clientchat;
 
+import ru.chaikhana.model.Product;
 import ru.chaikhana.model.chat.ClientChat;
 
 import java.util.List;
@@ -19,4 +20,6 @@ public interface ClientChatService {
     void changeClientChatCategory(String chatCategory, String clientId);
 
     void changeClientChatStatus(String chatStatus, String clientId);
+    void deleteProductInClientChat(Product product, String clientId);
+    void addProductInClientChat(Product product, String clientId);
 }

@@ -8,16 +8,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.chaikhana.model.Message;
 import ru.chaikhana.model.chat.ClientChat;
-import ru.chaikhana.service.clientchat.ClientChatServiceImpl;
-import ru.chaikhana.service.message.MessageServiceImpl;
+import ru.chaikhana.service.clientchat.ClientChatService;
+import ru.chaikhana.service.message.MessageService;
 
 import java.util.List;
 
 @AllArgsConstructor
 @RestController
+//Метод менеджер выбрал чат ну типа айди, изменение статуса и т.д.
 public class ClientChatController {
-    private final ClientChatServiceImpl clientChatService;
-    private final MessageServiceImpl messageService;
+    private final ClientChatService clientChatService;
+    private final MessageService messageService;
 
     /*Отправление сообщения в чат
       со стороны клиента и менеджера*/

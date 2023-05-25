@@ -2,6 +2,7 @@ package ru.chaikhana.service.clientchat;
 
 import lombok.Data;
 import org.springframework.stereotype.Service;
+import ru.chaikhana.model.Product;
 import ru.chaikhana.model.chat.ClientChat;
 import ru.chaikhana.repository.ClientChatRepository;
 
@@ -58,5 +59,23 @@ public class ClientChatServiceImpl implements ClientChatService {
         ClientChat clientChat = getClientChatByClientId(clientId);
         clientChat.setChatStatus(chatStatus);
         updateClientChat(clientChat);
+    }
+
+    @Override
+    public void deleteProductInClientChat(Product product, String clientId) {
+        ClientChat clientChat = getClientChatByClientId(clientId);
+        if(clientChat!=null){
+            clientChat.getClientProducts().remove(product);
+            updateClientChat(clientChat);
+        }
+    }
+
+    @Override
+    public void addProductInClientChat(Product product, String clientId) {
+        ClientChat clientChat = getClientChatByClientId(clientId);
+        if(clientChat!=null){
+            clientChat.getClientProducts().add(product);
+            updateClientChat(clientChat);
+        }
     }
 }
